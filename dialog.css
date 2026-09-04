@@ -1,0 +1,22 @@
+dialog {
+  width: min(520px, 92vw);
+  padding: 0;
+  border: 0;
+  border-radius: 12px;
+  box-shadow: 0 24px 70px #081c2d55;
+}
+
+dialog::backdrop { background: #0b1f3399; }
+.dialog-card { padding: 24px; }
+.dialog-head { display: flex; justify-content: space-between; align-items: start; }
+.dialog-head h2 { margin: 0; color: var(--navy); }
+.dialog-head p { margin: 5px 0 0; color: var(--muted); }
+.icon-btn { width: 36px; padding: 0; background: transparent; color: #526577; font-size: 28px; }
+.date-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 24px 0; }
+.date-grid label { font-size: 13px; font-weight: 700; }
+.date-grid input { display: block; width: 100%; margin-top: 7px; }
+.dialog-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 16px; }
+
+@media (max-width: 560px) {
+  .date-grid { grid-template-columns: 1fr; }
+}
