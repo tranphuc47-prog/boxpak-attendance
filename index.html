@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Box-Pak | Chấm công</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="dialog.css">
 </head>
 <body>
   <section id="loginView" class="login-shell">
@@ -28,7 +29,8 @@
     </header>
     <div class="redline"></div>
     <section class="content">
-      <div class="title-row"><div><h1>Tổng quan chấm công</h1><p>Dữ liệu đồng bộ từ điểm nhận diện</p></div><div class="filters"><input id="workDate" type="date"><input id="siteCode" value="NHA_MAY_A"><button id="refreshBtn">Làm mới</button><button id="exportBtn" class="secondary">Xuất CSV</button></div></div>
+      <div class="title-row"><div><h1>Tổng quan chấm công</h1><p>Dữ liệu đồng bộ từ điểm nhận diện</p></div><div class="filters"><input id="employeeCode" type="search" placeholder="Nhập MSNV" title="Lọc theo mã số nhân viên"><input id="workDate" type="date" title="Ngày xem"><input id="siteCode" value="NHA_MAY_A" title="Mã địa điểm"><button id="refreshBtn">Làm mới</button><button id="exportBtn" class="secondary">Xuất dữ liệu</button></div></div>
+      <section id="employeeInfo" class="employee-info hidden"></section>
       <div class="cards">
         <article><i class="blue"></i><span>ĐÃ GHI NHẬN</span><strong id="totalCount">0</strong></article>
         <article><i class="green"></i><span>BỘ PHẬN</span><strong id="deptCount">0</strong></article>
@@ -40,9 +42,16 @@
       </section>
     </section>
   </main>
+  <dialog id="exportDialog">
+    <form method="dialog" class="dialog-card">
+      <div class="dialog-head"><div><h2>Xuất dữ liệu chấm công</h2><p id="exportScope">Chọn khoảng ngày cần tải xuống</p></div><button value="cancel" class="icon-btn" aria-label="Đóng">×</button></div>
+      <div class="date-grid"><label>Từ ngày<input id="exportFrom" type="date" required></label><label>Đến ngày<input id="exportTo" type="date" required></label></div>
+      <div id="exportStatus" class="error"></div>
+      <div class="dialog-actions"><button value="cancel" class="secondary">Hủy</button><button id="downloadRangeBtn" value="default" type="button">Tải CSV</button></div>
+    </form>
+  </dialog>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="config.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
-

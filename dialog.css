@@ -16,7 +16,15 @@ dialog::backdrop { background: #0b1f3399; }
 .date-grid label { font-size: 13px; font-weight: 700; }
 .date-grid input { display: block; width: 100%; margin-top: 7px; }
 .dialog-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 16px; }
+.employee-info { display: flex; align-items: center; gap: 34px; margin-top: 18px; padding: 15px 18px; border: 1px solid #cdddeb; border-left: 5px solid var(--red); border-radius: 8px; background: #fff; }
+.employee-info div { min-width: 190px; }
+.employee-info span { display: block; margin-bottom: 5px; color: var(--muted); font-size: 11px; font-weight: 800; }
+.employee-info strong { color: var(--navy); }
+.employee-info button { margin-left: auto; }
+#employeeCode { width: 145px; text-transform: uppercase; }
 
 @media (max-width: 560px) {
   .date-grid { grid-template-columns: 1fr; }
+  .employee-info { display: block; }
+  .employee-info div, .employee-info button { margin: 10px 0; }
 }
