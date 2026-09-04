@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Box-Pak | Chấm công</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <section id="loginView" class="login-shell">
+    <div class="login-card">
+      <img src="assets/boxpak_logo.png" alt="Box-Pak" class="login-logo">
+      <h1>Hệ thống chấm công</h1>
+      <p>Đăng nhập dành cho bộ phận nhân sự</p>
+      <form id="loginForm">
+        <label>Email</label><input id="email" type="email" autocomplete="username" required>
+        <label>Mật khẩu</label><input id="password" type="password" autocomplete="current-password" required>
+        <button type="submit">Đăng nhập</button>
+      </form>
+      <div id="loginError" class="error"></div>
+    </div>
+  </section>
+
+  <main id="appView" class="hidden">
+    <header>
+      <div class="brand"><img src="assets/boxpak_logo.png" alt="Box-Pak"><div><strong>HỆ THỐNG CHẤM CÔNG</strong><span>BOX-PAK (VIETNAM) CO., LTD</span></div></div>
+      <div class="account"><span id="userEmail"></span><button id="logoutBtn" class="secondary">Đăng xuất</button></div>
+    </header>
+    <div class="redline"></div>
+    <section class="content">
+      <div class="title-row"><div><h1>Tổng quan chấm công</h1><p>Dữ liệu đồng bộ từ điểm nhận diện</p></div><div class="filters"><input id="workDate" type="date"><input id="siteCode" value="NHA_MAY_A"><button id="refreshBtn">Làm mới</button><button id="exportBtn" class="secondary">Xuất CSV</button></div></div>
+      <div class="cards">
+        <article><i class="blue"></i><span>ĐÃ GHI NHẬN</span><strong id="totalCount">0</strong></article>
+        <article><i class="green"></i><span>BỘ PHẬN</span><strong id="deptCount">0</strong></article>
+        <article><i class="amber"></i><span>CẬP NHẬT GẦN NHẤT</span><strong id="lastUpdate">--:--</strong></article>
+      </div>
+      <section class="table-card">
+        <div class="table-title"><strong>Danh sách chấm công</strong><span id="loadStatus"></span></div>
+        <div class="table-wrap"><table><thead><tr><th>MSNV</th><th>Họ tên</th><th>Bộ phận</th><th>Giờ vào</th><th>Giờ ra</th><th>Tổng thời gian</th><th>Số lần nhận diện</th></tr></thead><tbody id="attendanceBody"></tbody></table></div>
+      </section>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
+
